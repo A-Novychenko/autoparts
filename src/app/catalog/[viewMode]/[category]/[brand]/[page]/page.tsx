@@ -116,12 +116,12 @@ export default async function ProductPage({
           {products.length ? (
             <div className="flex flex-col">
               <ProductList viewMode={initialViewMode} products={products} />
+
               <Pagination
                 totalPages={totalPages}
-                brand={brand}
-                category={category}
                 page={pageNumber}
-                viewMode={viewMode}
+                viewMode={initialViewMode}
+                baseLink={`/catalog/${viewMode}/${category}/${brand}`}
               />
             </div>
           ) : (

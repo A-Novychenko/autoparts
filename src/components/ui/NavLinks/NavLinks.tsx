@@ -8,15 +8,20 @@ export const NavLinks: React.FC = () => {
   const { navLinks } = staticData;
 
   return (
-    <nav className="">
-      <ul className="flex flex-wrap justify-center gap-[2px] border-white/30">
+    <nav className="w-full">
+      <ul className="flex flex-col gap-2 xl:flex-row xl:flex-wrap xl:justify-center xl:gap-[2px] xl:border-white/30">
         {navLinks &&
           navLinks.map(({ name, href }, idx) => (
             <li key={idx} className={styles.gridItem}>
               <Link
                 href={`/${href}`}
-                className="block cursor-pointer rounded-[4px] bg-mediumBg/20 px-10 py-3 text-center text-[16px] font-bold uppercase transition-all
-                hover:scale-y-110 hover:text-accent focus:scale-y-110 focus:text-accent"
+                className="group flex items-center justify-between rounded-xl bg-white/5 px-5 py-4
+                 text-base font-semibold uppercase tracking-wide text-white transition-all
+                 hover:bg-white/10 active:scale-[0.98]
+                 xl:block xl:w-auto xl:cursor-pointer xl:rounded-[4px] xl:bg-mediumBg/20
+                 xl:px-10 xl:py-3 xl:text-center xl:text-[16px] xl:font-bold xl:leading-[19px]
+                 xl:tracking-normal xl:hover:scale-y-110
+                 xl:hover:bg-mediumBg/20 xl:hover:text-accent xl:focus:scale-y-110 xl:focus:text-accent xl:active:scale-100"
               >
                 {name}
               </Link>

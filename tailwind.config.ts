@@ -7,6 +7,7 @@ const config: Config = {
     './src/layout/**/*.{js,ts,jsx,tsx,mdx}',
     './src/sections/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: ['no-scrollbar'],
   theme: {
     screens: {
       sm: '480px',
@@ -14,6 +15,7 @@ const config: Config = {
       xl: '1280px',
 
       smOnly: { max: '767.98px' },
+      smOnly340: { max: '339.98px' },
       smOnly420: { max: '419.98px' },
       mdOnly: { min: '768px', max: '1279.98px' },
     },
@@ -21,8 +23,8 @@ const config: Config = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '16px',
-        sm: '16px',
+        DEFAULT: '8px',
+        sm: '8px',
         md: '42px',
         xl: '32px',
       },
@@ -69,6 +71,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 export default config;

@@ -11,3 +11,6 @@ export * from './getSlugId';
 export * from './generateProductPath';
 export * from './makeMeta';
 export * from './generateDeliveryTime';
+export * from './getGroupSlugs';
+export * from './getCurrentSlugByGroupPage';
+export * from './buildCanonicalPath';
