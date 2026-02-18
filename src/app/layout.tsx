@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geologica, Lora, Nunito } from 'next/font/google';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { ToastContainer } from 'react-toastify';
@@ -37,6 +37,14 @@ const lora = Lora({
 
 export const metadata: Metadata = generateStaticMetadata('home');
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#101340' },
+    { media: '(prefers-color-scheme: dark)', color: '#101340' },
+  ],
+  viewportFit: 'cover',
+};
+
 type Category = {
   id: string;
   name: string;
@@ -72,13 +80,13 @@ export default async function RootLayout({
       <GoogleTagManager gtmId="GTM-PKGTCK5F" />
 
       <body
-        className={`${nunito.variable} ${geologica.variable} ${lora.variable}`}
+        className={`${nunito.variable} ${geologica.variable} ${lora.variable}  bg-darkBg `}
       >
         <CartProvider>
-          <div className="flex min-h-screen flex-col">
+          <div className="flex min-h-screen flex-col bg-white ">
             <Header />
 
-            <main className="flex grow flex-col">
+            <main className="mt-[104px] flex grow flex-col  xl:mt-0">
               {children}
 
               {vinModal}

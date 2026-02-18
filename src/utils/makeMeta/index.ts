@@ -6,3 +6,5 @@ export * from './makeHomeStructuredData';
 export * from './makeVinStructuredData';
 export * from './generateStaticMetadata';
 export * from './makeSearchStructuredData';
+export * from './generateGroupStructuredData';
+export * from './makeGroupPageMetadata';

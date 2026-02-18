@@ -48,7 +48,7 @@ export const CartContactForm: React.FC<CartContactFormProps> = ({
           />
           {errors.name && (
             <p className="absolute bottom-0 text-[12px] text-red">
-              {'Введіть імʼя'}
+              {'Імʼя повинно містити від 2 до 64 символів'}
             </p>
           )}
         </label>

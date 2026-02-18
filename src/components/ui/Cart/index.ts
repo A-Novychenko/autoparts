@@ -13,3 +13,4 @@ export * from './CartPhoneInput';
 export * from './CartResult';
 export * from './CartErrorAlert';
 export * from './CartOrderStatus';
+export * from './CartIcon';

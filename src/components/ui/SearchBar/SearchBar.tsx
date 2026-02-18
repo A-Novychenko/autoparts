@@ -30,7 +30,7 @@ export const SearchBar = () => {
   return (
     <form onSubmit={handleSubmit} className="relative">
       <input
-        className="w-full rounded-md p-2 pr-10 text-secondaryText xl:w-[400px] xl:text-[20px]"
+        className="w-full rounded-md py-1 pl-2 pr-7 text-[16px] text-secondaryText xl:w-[400px] xl:p-2 xl:pr-10 xl:text-[20px]"
         placeholder={placeholder}
         value={searchQuery}
         onChange={handleInputChange}
@@ -41,7 +41,7 @@ export const SearchBar = () => {
         <SearchIcon
           width={40}
           height={40}
-          className="absolute right-0 top-0 p-2"
+          className="absolute right-0 top-0 size-[28px] p-1 xl:size-[40px] xl:p-2"
           aria-label={ariaLabelIcon}
         />
       </button>

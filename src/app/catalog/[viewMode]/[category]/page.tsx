@@ -109,10 +109,9 @@ export default async function CategoryPage({
 
                   <Pagination
                     totalPages={totalPages}
-                    brand={category}
-                    category={category}
                     page={page}
                     viewMode={initialViewMode}
+                    baseLink={`/catalog/${viewMode}/${category}/${category}`}
                   />
                 </>
               )}

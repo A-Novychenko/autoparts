@@ -13,3 +13,8 @@ export * from './getProductData';
 export * from './getTotalProducts';
 export * from './getBrandsCategories';
 export * from './getTopProducts';
+export * from './getAllGroups';
+export * from './getRootGroups';
+export * from './getGroupBySlugPath';
+export * from './getSubCategories';
+export * from './getProductsByGroup';

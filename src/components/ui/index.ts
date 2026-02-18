@@ -30,3 +30,6 @@ export * from './Recaptcha';
 export * from './BackBtn';
 export * from './LetterAvatar';
 export * from './ScrollToTopButton';
+export * from './GallerySwitcher';
+export * from './Breadcrumbs';
+export * from './MobileMenu';

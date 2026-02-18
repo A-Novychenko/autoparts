@@ -1,8 +1,10 @@
+import { MobileMenuContent } from '@/components/base';
 import {
   Assistance,
   CartWidget,
   Contacts,
   Logo,
+  MobileMenu,
   NavLinks,
   SearchBar,
   WorkSchedule,
@@ -11,8 +13,14 @@ import {
 export const Header: React.FC = () => {
   return (
     <header className=" bg-darkBg text-primaryText">
-      <div className="container">
-        <div className="flex flex-col py-1 xl:flex-row xl:items-center xl:justify-between">
+      <div className="xl:hidden">
+        <MobileMenu>
+          <MobileMenuContent />
+        </MobileMenu>
+      </div>
+
+      <div className="container hidden xl:block">
+        <div className=" flex flex-col py-1 xl:flex-row xl:items-center xl:justify-between">
           <div className="mt-2 flex justify-between xl:gap-8 smOnly:order-1 smOnly:mb-4 smOnly420:flex-col smOnly420:gap-4">
             <Logo />
 
@@ -27,6 +35,7 @@ export const Header: React.FC = () => {
 
           <div className="flex items-center justify-between xl:gap-12 smOnly:order-2 smOnly:mb-4">
             <WorkSchedule />
+
             <CartWidget />
           </div>
         </div>

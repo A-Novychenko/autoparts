@@ -1,4 +1,5 @@
 {
+  "storeName": "Avto-Magaz",
   "logoName": "AM",
   "mail": "info@avto-magaz.com.ua",
   "site": "http://avto-magaz.com.ua",
@@ -101,7 +102,7 @@
     "address": "Київ"
   },
   "searchInput": {
-    "placeholder": "Введіть номер запчастини",
+    "placeholder": "Пошук по номеру або назві запчастини ",
     "ariaLabelBtn": "Кнопка для пошуку товарів",
     "ariaLabelIcon": "лупа пошуку"
   },

@@ -112,7 +112,7 @@ const Cart: React.FC<CartProps> = ({ isPage, isCheckoutPage }) => {
   const handleValidationName = (val: string) => {
     const nameCleaned = val?.trim();
 
-    if (nameCleaned.length < 2) {
+    if (nameCleaned.length < 2 || nameCleaned.length > 64) {
       setErrors(pS => ({ ...pS, name: 'name' }));
     } else {
       setErrors(pS => ({ ...pS, name: undefined }));

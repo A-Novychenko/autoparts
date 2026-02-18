@@ -1,11 +1,6 @@
 .gridItem {
-  flex-basis: 100%;
-
-  @media screen and (min-width: 450px) {
-    flex-basis: calc((100% - 2px * 1) / 2);
-  }
-
   @media screen and (min-width: 1280px) {
+    flex-basis: 100%;
     flex-basis: calc((100% - 2px * 4) / 5);
   }
 }
