@@ -33,3 +33,4 @@ export * from './ScrollToTopButton';
 export * from './GallerySwitcher';
 export * from './Breadcrumbs';
 export * from './MobileMenu';
+export * from './GlobalLoader';

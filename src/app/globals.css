@@ -99,3 +99,39 @@ body {
     display: none; /* Chrome, Safari */
   }
 }
+
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.skeleton-item {
+  animation: skeleton-pulse 1.8s ease-in-out infinite;
+  background-color: #f3f4f6; /* Светлый цвет карточки, как твой bg-lightBg */
+}
+
+/* Цвет для "дырок" внутри карточки (текст, картинка) */
+.skeleton-fill {
+  background-color: #e5e7eb;
+  border-radius: 4px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-in.fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
