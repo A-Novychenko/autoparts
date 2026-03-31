@@ -17,18 +17,10 @@ export const GroupSection: React.FC = async () => {
   const rootGroups: IGroup[] = await getRootGroups();
 
   return (
-    <section className="section" id="main-groups">
+    <section className="section overflow-hidden" id="main-groups">
       <div className="container">
         <h2 className="sr-only">Популярні категорії товарів</h2>
 
-        {/* 1. ИЗМЕНЕНИЕ GRID:
-           было: md:grid-cols-4
-           стало: xl:grid-cols-4 
-           
-           Теперь на md (планшете) останется grid-cols-2.
-           Широкая карточка будет занимать 2 колонки (весь экран),
-           Узкая - 1 колонку (половина экрана).
-        */}
         <ul className="grid grid-flow-dense grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4 xl:gap-6">
           {rootGroups.map((group, index) => {
             const accentColor = ACCENTS[index % ACCENTS.length];
@@ -40,7 +32,8 @@ export const GroupSection: React.FC = async () => {
               <li
                 key={group._id}
                 className={cn(
-                  'group relative flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-customLight transition-all duration-300 hover:-translate-y-1 hover:border-gray-200 hover:shadow-custom',
+                  // ❗ hover только с md
+                  'group relative flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-customLight transition-all duration-300 md:hover:-translate-y-1 md:hover:border-gray-200 md:hover:shadow-custom',
                   isWide ? 'col-span-2' : 'col-span-1',
                 )}
               >
@@ -49,48 +42,49 @@ export const GroupSection: React.FC = async () => {
                   className="flex h-full flex-col"
                   aria-label={`Перейти в категорію ${group.name}`}
                 >
+                  {/* ❗ Убрали padding отсюда */}
                   <div
                     className={cn(
-                      'relative w-full overflow-hidden p-4',
-
-                      // 2. ИЗМЕНЕНИЕ ПРОПОРЦИЙ:
-                      // Логику "приплюснутой" карточки (aspect-[2.1/1]) применяем только на XL,
-                      // когда карточки стоят рядом в 4 колонки.
-
-                      // На планшете (md) широкая карточка будет во всю ширину.
-                      // aspect-[2/1] на планшете может быть слишком высоким,
-                      // поэтому добавил 'md:aspect-[2.5/1]', чтобы она была как узкий баннер.
+                      'relative w-full overflow-hidden',
                       isWide
                         ? 'aspect-[2/1] md:aspect-[2.5/1] xl:aspect-[2.1/1]'
                         : 'aspect-[4/3] md:aspect-[1/1]',
                     )}
                   >
-                    {group.img ? (
-                      <Image
-                        src={group.img}
-                        alt={group.name}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                        className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
-                        priority={index < 4}
-                      />
-                    ) : (
-                      <div className="flex size-full items-center justify-center text-gray-300">
-                        <svg
-                          className="size-12"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={1.5}
-                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      </div>
-                    )}
+                    {/* ❗ padding перенесен внутрь */}
+                    <div className="absolute inset-0 p-4">
+                      {group.img ? (
+                        <Image
+                          src={group.img}
+                          alt={group.name}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                          className="
+                            object-contain object-center
+                            transition-transform duration-500
+                            will-change-transform
+                            md:group-hover:scale-[1.03]
+                          "
+                          priority={index < 4}
+                        />
+                      ) : (
+                        <div className="flex size-full items-center justify-center text-gray-300">
+                          <svg
+                            className="size-12"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={1.5}
+                              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   <div className="relative z-10 mt-auto flex grow flex-col justify-center bg-white p-3 md:px-5 md:py-4 xl:justify-end xl:py-0 xl:pb-2">

@@ -1,10 +1,15 @@
 import type { Metadata, Viewport } from 'next';
+
 import { Geologica, Lora, Nunito } from 'next/font/google';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { ToastContainer } from 'react-toastify';
 
 import { Footer, Header } from '@/layout';
-import { CartModalSlot, ScrollToTopButton } from '@/components/ui';
+import {
+  CartModalSlot,
+  GlobalLoaderClient,
+  ScrollToTopButton,
+} from '@/components/ui';
 
 import { getMainCategories } from '@/actions/servicesAPI';
 import { CartProvider } from '@/context';
@@ -83,6 +88,8 @@ export default async function RootLayout({
         className={`${nunito.variable} ${geologica.variable} ${lora.variable}  bg-darkBg `}
       >
         <CartProvider>
+          <GlobalLoaderClient />
+
           <div className="flex min-h-screen flex-col bg-white ">
             <Header />
 
